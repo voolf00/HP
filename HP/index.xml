@@ -1,0 +1,95 @@
+using UnityEngine;
+using System.Collections;
+
+using System.Net;
+using System.IO;
+using System.Xml;
+
+
+public class testLink : MonoBehaviour {
+
+	private string text = "Now";
+	private int page_id = 1;
+
+	public GUISkin testif;
+
+
+
+
+	private string HttpGET(string url){
+
+		HttpWebRequest req = WebRequest.Create (url) as HttpWebRequest;
+
+		string Out = null;
+		HttpWebResponse resp = req.GetResponse () as HttpWebResponse;
+
+
+		StreamReader sr = new StreamReader (resp.GetResponseStream());
+		Out = sr.ReadToEnd ();
+		sr.Close ();
+		return Out;
+	}
+
+    void OnGUI() {
+
+		int x = 30;
+		string url = "";
+		GUI.Label (new Rect (Screen.width / 2 - 100, Screen.width / 2 - 50, 500, 200), text );
+
+		if (GUI.Button (new Rect (Screen.width / 2 - 100, x, 200, 20), "Connect")) {
+			if (page_id == 1) {
+				url = "http://localhost:8000/";
+				page_id = 2;
+				text = HttpGET (url);
+
+
+
+				StringReader stringReader = new StringReader(text);
+				XmlTextReader reader = new XmlTextReader (stringReader);
+
+
+				while (reader.Read()){
+					// Обработка данных.
+
+					string idtext = reader.GetAttribute("pk");
+
+
+					switch (reader.Name)
+					{
+						case "django-objects":
+							break;
+
+					case "object":
+
+
+                            case "field":
+                                string attribute = reader["name"];
+                                if (attribute == "name")
+                                {
+                                    if (reader.Read())
+                                    {
+
+                                    string name = reader.Value.Trim();
+
+                                    GUI.Label (new Rect (Screen.width / 2 - 100, Screen.width / 2 - 50, 500, 200), name );
+
+                                    }
+
+                            }
+                            break;
+					}
+
+
+				}
+
+			} else {
+				url = "http://localhost:8000/2";
+				page_id=1;
+				text = HttpGET (url);
+				GUI.Label (new Rect (Screen.width / 2 - 100, x, 500, 200), text );
+			}
+		}
+
+    }
+
+}

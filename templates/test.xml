@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+    <object pk="1" model="Unity.object">
+        <field type="CharField" name="name">test 1</field>
+        <field type="TextField" name="text">смотрим результат</field>
+        <field type="DateTimeField" name="date">2014-11-07T10:57:03+00:00</field>
+    </object>
+    <object pk="2" model="Unity.object">
+        <field type="CharField" name="name">дубль 2</field>
+        <field type="TextField" name="text">Смотрим результат</field>
+        <field type="DateTimeField" name="date">2014-11-07T10:57:16+00:00</field>
+    </object>
+</django-objects>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+<object pk="1" model="Unity.object">
+    <field type="CharField" name="name">test 1</field>
+    <field type="TextField" name="text">смотрим результат</field>
+    <field type="DateTimeField" name="date">2014-11-07T10:57:03+00:00</field>
+</object>
+</django-objects>

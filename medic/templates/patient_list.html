@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block login %}
+
+    <p>{{ list.patient_user_id.first_name }} {{ list.patient_user_id.second_name }} {{ list.patient_user_id.last_name }}</p>
+    <p>Диагноз: {{ list.diagnoz }}</p>
+    <p>Выписан: {{ list.vypiska }}</p>
+    <p>Дата: {{ list.add_date }}</p>
+    {% if list.obj_3d %}
+        <p>Модель 3д: {{ list.obj_3d.url }}</p>
+    {% endif %}
+{% endblock %}

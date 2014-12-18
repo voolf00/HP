@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block user %}
+    <h2>{{ patient.first_name }} {{ patient.second_name }} {{ patient.last_name }} <input style="float: right;" class="button" type="button" value="Добавить боьничный лист" onclick="location.href = '/unity/auth/patient/get/{{ patient.id }}/addlist'"> </h2>
+    <p>{{ patient.id }}</p>
+    <p></p>
+    <p>{{ patient.is_who }}</p>
+
+    <input class="button" type="button" value="Список больничных листов" onclick="location.href ='/unity/auth/patient/get/{{ patient.id }}/list/'">
+
+
+{% endblock %}

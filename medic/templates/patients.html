@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{{% block user %}
+    <h2>Больные</h2>
+    {% for patient in patients %}
+   <a href="/unity/auth/patient/get/{{ patient.id }}" >{{ patient.first_name }} {{ patient.second_name }} {{ patient.last_name }}</a>
+        <hr>
+
+    {% endfor %}
+
+{% endblock %}

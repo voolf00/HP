@@ -1,6 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="content">
+    <div style="background-color: #888888; padding: 10px;">
+    <input type="button" class="button" onclick="location.href='/unity/auth/register'" value="Добавить пользователя">
+    <input type="button" class="button" onclick="location.href='/unity/auth/patient/'" value="Список людей">
+    </div>
+<hr>
 
+    {% block user %}{% endblock %}
 
-{% block article %} {% endblock %}
+    {% block article %} {% endblock %}
 
-{% block login %}{% endblock %}
-
+    {% block login %}{% endblock %}
+</div>
+</body>
+</html>

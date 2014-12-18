@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block  user%}
+
+    <form action="/unity/auth/patient/get/{{ patient_id }}/addlist" method="post">
+    {% csrf_token %}
+    {{ list_form }}
+
+    <input class="button" type="submit" value="Добавить лист">
+    </form>
+
+{% endblock %}

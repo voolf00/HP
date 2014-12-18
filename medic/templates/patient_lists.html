@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block user %}
+
+
+    {% if patient_lists %}
+        {% for list in patient_lists %}
+
+            <h2>Больничный
+                лист: {{ list.patient_user_id.first_name }} {{ list.patient_user_id.second_name }} {{ list.patient_user_id.last_name }}</h2>
+            {#        <p>Диагноз: {{ list.diagnoz }}</p>#}
+            <p>Выписан? {{ list.vypiska }}</p>
+            <p>Добавлен: {{ list.add_date }}</p>
+            <p>Кем
+                добавлена: {{ list.add_user_id.first_name }} {{ list.add_user_id.second_name }} {{ list.add_user_id.last_name }}</p>
+            <a href="/unity/auth/patient/get/{{ list.patient_user_id.id }}/list/{{ list.id }}">Прочитать больничный лист</a>
+
+        {% endfor %}
+
+    {% else %}
+        <h2>Пока нет больничных листов</h2>
+    {% endif %}
+{% endblock %}

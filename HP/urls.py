@@ -13,5 +13,5 @@ urlpatterns = patterns('',
     #url(r'^get/(\d+)', 'Unity.views.article'),
     url(r'^admin/', include(admin.site.urls)),
 
-    #url(r'^', 'Unity.views.getTestUnity'),
+
 )
